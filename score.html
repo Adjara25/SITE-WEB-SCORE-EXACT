@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Score Match de Football</title>
+    <style>
+      body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #4CAF50, #2196F3);
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: linear-gradient(to right, orange, white, green);
+    padding: 20px;
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    color: black;
+}
+
+input {
+    padding: 10px;
+    margin: 5px 0;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+button {
+    padding: 10px;
+    background: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background: #218838;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 1.5em;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prédiction du Score de Football</h1>
+        <form id="scoreForm">
+            <input type="text" id="teamA" placeholder="Équipe A" required>
+            <input type="text" id="teamB" placeholder="Équipe B" required>
+            <button type="submit">Prédire le Score</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script>
+      document.getElementById('scoreForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const teamA = document.getElementById('teamA').value;
+    const teamB = document.getElementById('teamB').value;
+
+    // Simule la prédiction de score basée sur les 5 dernières confrontations
+    const predictedScoreA = Math.floor(Math.random() * 3); // Score entre 0 et 4
+    const predictedScoreB = Math.floor(Math.random() * 3); // Score entre 0 et 4
+
+    document.getElementById('result').innerText = `${teamA} ${predictedScoreA} - ${predictedScoreB} ${teamB}`;
+});
+
+    </script>
+</body>
+  </html>
